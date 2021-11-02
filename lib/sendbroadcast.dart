@@ -12,9 +12,16 @@ class SendBroadcast {
     return version;
   }
 
-  static Future<String> send(String value) async {
-    final res =
-        await _channel.invokeMethod('sendBroadcast', {"message": value});
+  static Future<String> send({
+    required String value,
+    required String action,
+    required String param,
+  }) async {
+    final res = await _channel.invokeMethod('sendBroadcast', {
+      "message": value,
+      "action": action,
+      "param": param,
+    });
     return res;
   }
 }

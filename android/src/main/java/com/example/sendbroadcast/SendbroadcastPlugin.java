@@ -36,8 +36,10 @@ public class SendbroadcastPlugin implements FlutterPlugin, MethodCallHandler {
     
     if (call.method.equals("sendBroadcast")){
       final String value = call.argument("message");
-      Intent intent = new Intent("com.vietdung.testbroadcast.ACTION_LISTENER");
-      intent.putExtra("message",value);
+      final String action = call.argument("action");
+      final String param = call.argument("param");
+      Intent intent = new Intent(action);
+      intent.putExtra(param,value);
       context.sendBroadcast(intent);
       result.success(value);
     }else{

@@ -58,7 +58,7 @@ class _MyAppState extends State<MyApp> {
         body: Center(
           child: ElevatedButton(
               onPressed: () async {
-                asdasd = await SendBroadcast.send('dang');
+                await SendBroadcast.send(value: '', action: '', param: '');
                 setState(() {});
               },
               child: Text(asdasd)),
